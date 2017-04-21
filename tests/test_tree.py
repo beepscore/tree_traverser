@@ -6,9 +6,9 @@ from tree_traverser import node, tree
 
 class TestTree(unittest.TestCase):
 
-    def test_init(self):
+    def test_get_node_with_value(self):
         node0_value = 3
         node0 = node.Node(node0_value)
 
-        oak_tree = tree.Tree(node0)
-        self.assertEqual(oak_tree.root, node0)
+        actual = tree.get_node_with_value(node0, node0_value)
+        self.assertEqual(actual, node0)
