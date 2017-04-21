@@ -9,3 +9,6 @@ Practice traversing a binary tree using recursive depth first search.
 
 # Results
 
+## Unit tests
+
+    python3 -m unittest discover
