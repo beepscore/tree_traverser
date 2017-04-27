@@ -18,3 +18,13 @@ class TestNode(unittest.TestCase):
         node0.children[1] = node1
         self.assertEqual(node0.children[1], node1)
 
+    def test_is_leaf_node(self):
+        node0_value = 3
+        node0 = node.Node(node0_value)
+        self.assertTrue(node0.is_leaf_node())
+
+        node1_value = 8
+        node1 = node.Node(node1_value)
+        node0.children[1] = node1
+        self.assertFalse(node0.is_leaf_node())
+        self.assertTrue(node1.is_leaf_node())
