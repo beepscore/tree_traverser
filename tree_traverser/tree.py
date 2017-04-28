@@ -12,6 +12,7 @@ def values(nodes):
     vals = (list(node.value for node in nodes))
     return vals
 
+
 def get_node_with_value(node, value):
     """
     Traverses tree starting at node, depth first
