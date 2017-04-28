@@ -20,7 +20,7 @@ class TestTree(unittest.TestCase):
         print("test_get_node_with_value")
         node0_value = 3
         node0 = node.Node(node0_value)
-        actual = tree.get_node_with_value(node0, node0_value, [])
+        actual = tree.get_node_with_value(node0, node0_value)
         self.assertEqual(actual, node0)
 
     def test_get_node_with_value1(self):
@@ -28,7 +28,7 @@ class TestTree(unittest.TestCase):
         node0_value = 3
         node0 = node.Node(node0_value)
 
-        actual = tree.get_node_with_value(node0, 1, [])
+        actual = tree.get_node_with_value(node0, 1)
         self.assertEqual(actual, None)
 
     def test_get_node_with_value_child0(self):
@@ -40,7 +40,7 @@ class TestTree(unittest.TestCase):
         child1 = node.Node(child1_value)
         node0.children = [child0, child1]
 
-        actual = tree.get_node_with_value(node0, 2, [])
+        actual = tree.get_node_with_value(node0, 2)
         self.assertEqual(actual, child0)
 
     def test_get_node_with_value_child1(self):
@@ -52,7 +52,7 @@ class TestTree(unittest.TestCase):
         child1 = node.Node(child1_value)
         node0.children = [child0, child1]
 
-        actual = tree.get_node_with_value(node0, 7, [])
+        actual = tree.get_node_with_value(node0, 7)
         self.assertEqual(actual, child1)
 
     def test_get_node_with_value_three_levels_none(self):
@@ -68,7 +68,7 @@ class TestTree(unittest.TestCase):
         node5 = node.Node(1)
         node2.children = [node5]
 
-        actual = tree.get_node_with_value(node0, 9, [])
+        actual = tree.get_node_with_value(node0, 9)
         self.assertEqual(actual, None)
 
     def test_get_node_with_value_three_levels(self):
@@ -84,7 +84,7 @@ class TestTree(unittest.TestCase):
         node5 = node.Node(1)
         node2.children = [node5]
 
-        actual = tree.get_node_with_value(node0, 1, [])
+        actual = tree.get_node_with_value(node0, 1)
         self.assertEqual(actual, node5)
 
     def test_get_node_with_value_three_levels_not_leaf(self):
@@ -101,7 +101,7 @@ class TestTree(unittest.TestCase):
         node5 = node.Node(1)
         node2.children = [node5]
 
-        actual = tree.get_node_with_value(node0, 5, [])
+        actual = tree.get_node_with_value(node0, 5)
         self.assertEqual(actual, node1)
 
     def test_get_node_with_value_three_levels_root(self):
@@ -118,5 +118,5 @@ class TestTree(unittest.TestCase):
         node5 = node.Node(1)
         node2.children = [node5]
 
-        actual = tree.get_node_with_value(node0, 7, [])
+        actual = tree.get_node_with_value(node0, 7)
         self.assertEqual(actual, node0)

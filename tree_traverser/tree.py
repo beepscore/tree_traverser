@@ -12,12 +12,11 @@ def values(nodes):
     vals = (list(node.value for node in nodes))
     return vals
 
-def get_node_with_value(node, value, node_stack):
+def get_node_with_value(node, value):
     """
     Traverses tree starting at node, depth first
     Note the tree may be a subtree of a larger tree.
     The method may be called recursively.
-    :node_stack is a lifo stack of nodes to visit later
     :return first node found with value.
     return None if node is None or if not found
     """
@@ -27,13 +26,12 @@ def get_node_with_value(node, value, node_stack):
 
     print("get_node_with_value")
     print("node ", node, "node.value ", node.value)
-    print("node_stack ", node_stack)
 
     if node.children != []:
         for child in node.children:
             # recurse
             print("recurse")
-            got_node = get_node_with_value(child, value, node_stack)
+            got_node = get_node_with_value(child, value)
             if got_node is not None:
                 return got_node
 
@@ -42,10 +40,5 @@ def get_node_with_value(node, value, node_stack):
         # success
         return node
     else:
-        # not a match
-        if len(node_stack) != 0:
-            print("pop")
-            node_stack.pop()
-
         return None
 
