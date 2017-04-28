@@ -44,6 +44,13 @@ class TestTree(unittest.TestCase):
         self.assertEqual(actual, child0)
 
     def test_get_node_with_value_child1(self):
+        """
+                 3
+               /  \
+              /    \
+             /      \
+            2       7
+        """
         node0_value = 3
         node0 = node.Node(node0_value)
         child0_value = 2
@@ -56,6 +63,15 @@ class TestTree(unittest.TestCase):
         self.assertEqual(actual, child1)
 
     def test_get_node_with_value_three_levels_none(self):
+        """
+                 3
+               /  \
+              /    \
+             /      \
+            5       2
+           / \     /
+          2   3   1
+        """
         node0 = node.Node(3)
         node1 = node.Node(5)
         node2 = node.Node(2)
@@ -86,7 +102,17 @@ class TestTree(unittest.TestCase):
         self.assertEqual(actual, node5)
 
     def test_get_node_with_value_three_levels_not_leaf(self):
+        """
+                 3
+               /  \
+              /    \
+             /      \
+            5       2
+           / \     /
+          2   3   1
+        """
         print("test_get_node_with_value_three_levels_not_leaf")
+
         node0 = node.Node(3)
         node1 = node.Node(5)
         node2 = node.Node(2)
@@ -102,7 +128,17 @@ class TestTree(unittest.TestCase):
         self.assertEqual(actual, node1)
 
     def test_get_node_with_value_three_levels_root(self):
+        """
+                 3
+               /  \
+              /    \
+             /      \
+            5       2
+           / \     /
+          2   3   1
+        """
         print("test_get_node_with_value_three_levels_root")
+
         node0 = node.Node(7)
         node1 = node.Node(5)
         node2 = node.Node(2)
