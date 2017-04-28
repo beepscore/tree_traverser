@@ -102,3 +102,19 @@ class TestTree(unittest.TestCase):
 
         actual = tree.get_node_with_value(node0, 5, [])
         self.assertEqual(actual, node1)
+
+    def test_get_node_with_value_three_levels_root(self):
+        node0 = node.Node(7)
+        node1 = node.Node(5)
+        node2 = node.Node(2)
+        node0.children = [node1, node2]
+
+        node3 = node.Node(6)
+        node4 = node.Node(3)
+        node1.children = [node3, node4]
+
+        node5 = node.Node(1)
+        node2.children = [node5]
+
+        actual = tree.get_node_with_value(node0, 7, [])
+        self.assertEqual(actual, node0)
