@@ -29,23 +29,7 @@ def get_node_with_value(node, value, node_stack):
     print("node ", node, "node.value ", node.value)
     print("node_stack ", node_stack)
 
-    if node.is_leaf_node():
-        if node.value == value:
-            # success
-            return node
-        else:
-            # not a match
-            if len(node_stack) != 0:
-                print("pop")
-                node_stack.pop()
-
-    else:
-        # not a leaf
-        print("append")
-        node_stack.append(node)
-        print("node_stack ", node_stack)
-        print("node_stack values ", values(node_stack))
-
+    if node.children != []:
         for child in node.children:
             # recurse
             print("recurse")
@@ -53,15 +37,15 @@ def get_node_with_value(node, value, node_stack):
             if got_node is not None:
                 return got_node
 
-        # searched all children, so now consider current node
-        if node.value == value:
-            # success
-            return node
-        else:
-            # not a match
-            if len(node_stack) != 0:
-                print("pop")
-                node_stack.pop()
+    # searched all children, so now consider current node
+    if node.value == value:
+        # success
+        return node
+    else:
+        # not a match
+        if len(node_stack) != 0:
+            print("pop")
+            node_stack.pop()
 
         return None
 
