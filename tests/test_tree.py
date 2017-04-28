@@ -59,13 +59,12 @@ class TestTree(unittest.TestCase):
         node0 = node.Node(3)
         node1 = node.Node(5)
         node2 = node.Node(2)
-        node0.children = [node1, node2]
-
         node3 = node.Node(2)
         node4 = node.Node(3)
-        node1.children = [node3, node4]
-
         node5 = node.Node(1)
+
+        node0.children = [node1, node2]
+        node1.children = [node3, node4]
         node2.children = [node5]
 
         actual = tree.get_node_with_value(node0, 9)
@@ -75,13 +74,12 @@ class TestTree(unittest.TestCase):
         node0 = node.Node(3)
         node1 = node.Node(5)
         node2 = node.Node(2)
-        node0.children = [node1, node2]
-
         node3 = node.Node(2)
         node4 = node.Node(3)
-        node1.children = [node3, node4]
-
         node5 = node.Node(1)
+
+        node0.children = [node1, node2]
+        node1.children = [node3, node4]
         node2.children = [node5]
 
         actual = tree.get_node_with_value(node0, 1)
@@ -92,13 +90,12 @@ class TestTree(unittest.TestCase):
         node0 = node.Node(3)
         node1 = node.Node(5)
         node2 = node.Node(2)
-        node0.children = [node1, node2]
-
         node3 = node.Node(2)
         node4 = node.Node(3)
-        node1.children = [node3, node4]
-
         node5 = node.Node(1)
+
+        node0.children = [node1, node2]
+        node1.children = [node3, node4]
         node2.children = [node5]
 
         actual = tree.get_node_with_value(node0, 5)
@@ -109,13 +106,12 @@ class TestTree(unittest.TestCase):
         node0 = node.Node(7)
         node1 = node.Node(5)
         node2 = node.Node(2)
-        node0.children = [node1, node2]
-
         node3 = node.Node(6)
         node4 = node.Node(3)
-        node1.children = [node3, node4]
-
         node5 = node.Node(1)
+
+        node0.children = [node1, node2]
+        node1.children = [node3, node4]
         node2.children = [node5]
 
         actual = tree.get_node_with_value(node0, 7)
