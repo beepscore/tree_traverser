@@ -11,12 +11,12 @@ class TestNode(unittest.TestCase):
         node0 = node.Node(node0_value)
         self.assertIsNotNone(node0)
         self.assertEqual(node0.value, node0_value)
-        self.assertEqual(node0.children, [None, None])
+        self.assertEqual(node0.children, [])
 
         node1_value = 8
         node1 = node.Node(node1_value)
-        node0.children[1] = node1
-        self.assertEqual(node0.children[1], node1)
+        node0.children.append(node1)
+        self.assertEqual(node0.children[0], node1)
 
     def test_is_leaf_node(self):
         node0_value = 3
@@ -25,6 +25,6 @@ class TestNode(unittest.TestCase):
 
         node1_value = 8
         node1 = node.Node(node1_value)
-        node0.children[1] = node1
+        node0.children.append(node1)
         self.assertFalse(node0.is_leaf_node())
         self.assertTrue(node1.is_leaf_node())
