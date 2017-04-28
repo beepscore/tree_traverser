@@ -88,6 +88,7 @@ class TestTree(unittest.TestCase):
         self.assertEqual(actual, node5)
 
     def test_get_node_with_value_three_levels_not_leaf(self):
+        print("test_get_node_with_value_three_levels_not_leaf")
         node0 = node.Node(3)
         node1 = node.Node(5)
         node2 = node.Node(2)
@@ -104,6 +105,7 @@ class TestTree(unittest.TestCase):
         self.assertEqual(actual, node1)
 
     def test_get_node_with_value_three_levels_root(self):
+        print("test_get_node_with_value_three_levels_root")
         node0 = node.Node(7)
         node1 = node.Node(5)
         node2 = node.Node(2)
