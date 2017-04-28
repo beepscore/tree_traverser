@@ -53,5 +53,15 @@ def get_node_with_value(node, value, node_stack):
             if got_node is not None:
                 return got_node
 
+        # searched all children, so now consider current node
+        if node.value == value:
+            # success
+            return node
+        else:
+            # not a match
+            if len(node_stack) != 0:
+                print("pop")
+                node_stack.pop()
+
         return None
 
