@@ -30,7 +30,6 @@ def get_node_with_value(node, value):
     if node.children != []:
         for child in node.children:
             # recurse
-            print("recurse")
             got_node = get_node_with_value(child, value)
             if got_node is not None:
                 return got_node
