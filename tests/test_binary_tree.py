@@ -70,30 +70,33 @@ class TestTree(unittest.TestCase):
         node0.right.left = binary_node.BinaryNode(2)
         self.assertFalse(binary_tree.is_valid_binary_search_tree(node0, {}))
 
-    # def test_is_valid_binary_search_tree_three_levels_none(self):
-    #     """
-    #              3
-    #            /  \
-    #           /    \
-    #          /      \
-    #         5       2
-    #        / \     /
-    #       2   3   1
-    #     """
-    #     node0 = node.Node(3)
-    #     node1 = node.Node(5)
-    #     node2 = node.Node(2)
-    #     node3 = node.Node(2)
-    #     node4 = node.Node(3)
-    #     node5 = node.Node(1)
-    #
-    #     node0.children = [node1, node2]
-    #     node1.children = [node3, node4]
-    #     node2.children = [node5]
-    #
-    #     actual = tree.get_node_with_value(node0, 9)
-    #     self.assertEqual(actual, None)
-    #
+    def test_is_valid_binary_search_tree_three_levels_child_none(self):
+        """
+                 5
+               /  \
+              /    \
+             /      \
+            4       7
+           / \     /
+          2   9   6
+        """
+        node0 = binary_node.BinaryNode(5)
+        node1 = binary_node.BinaryNode(4)
+        node2 = binary_node.BinaryNode(7)
+        node3 = binary_node.BinaryNode(2)
+        node4 = binary_node.BinaryNode(9)
+        node5 = binary_node.BinaryNode(6)
+
+        node0.left = node1
+        node0.right = node2
+
+        node1.left = node3
+        node1.right = node4
+
+        node2.left = node5
+
+        self.assertTrue(binary_tree.is_valid_binary_search_tree(node0, {}))
+
     # def test_get_node_with_value_three_levels(self):
     #     node0 = node.Node(3)
     #     node1 = node.Node(5)
