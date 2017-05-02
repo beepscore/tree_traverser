@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" tree_traverser contains methods to search a binary tree
+""" tree_traverser contains methods to search a tree
 """
 
 def values(nodes):
