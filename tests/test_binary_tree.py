@@ -49,6 +49,27 @@ class TestTree(unittest.TestCase):
 
         self.assertFalse(binary_tree.is_valid_binary_search_tree(node0, {}))
 
+    def test_is_valid_binary_search_tree_repeated(self):
+        """
+                 3
+               /  \
+              /    \
+             /      \
+            2       7
+                   /
+                  2
+        """
+        node0 = binary_node.BinaryNode(3)
+        node0.left = binary_node.BinaryNode(2)
+        node0.right = binary_node.BinaryNode(7)
+
+        # no repeated values
+        self.assertTrue(binary_tree.is_valid_binary_search_tree(node0, {}))
+
+        # add repeated value to make tree invalid
+        node0.right.left = binary_node.BinaryNode(2)
+        self.assertFalse(binary_tree.is_valid_binary_search_tree(node0, {}))
+
     # def test_is_valid_binary_search_tree_three_levels_none(self):
     #     """
     #              3
