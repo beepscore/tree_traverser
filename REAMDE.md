@@ -6,6 +6,8 @@ Practice traversing a binary tree using recursive depth first search.
 ## TreeTraverser Java
 https://github.com/beepscore/TreeTraverser
 
+https://en.wikipedia.org/wiki/Tree_traversal
+
 ## hacker_rank_test Python 3
 
 # Results
