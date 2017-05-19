@@ -70,21 +70,53 @@ class TestTree(unittest.TestCase):
         node0.right.left = binary_node.BinaryNode(2)
         self.assertFalse(binary_tree.is_valid_binary_search_tree(node0, {}))
 
+    def test_is_valid_binary_search_tree_three_levels_false(self):
+        """
+        In a valid sort tree, depth first in order traversal produces a sorted list.
+        This tree is not a valid sort tree.
+
+                 8
+               /  \
+              /    \
+             /      \
+            5        11
+           / \      /  \
+          2   7    1    12
+        """
+        node0 = binary_node.BinaryNode(8)
+        node1 = binary_node.BinaryNode(5)
+        node2 = binary_node.BinaryNode(11)
+        node3 = binary_node.BinaryNode(2)
+        node4 = binary_node.BinaryNode(7)
+        node5 = binary_node.BinaryNode(1)
+        node6 = binary_node.BinaryNode(12)
+
+        node0.left = node1
+        node0.right = node2
+
+        node1.left = node3
+        node1.right = node4
+
+        node2.left = node5
+        node2.right = node6
+
+        self.assertFalse(binary_tree.is_valid_binary_search_tree(node0, {}))
+
     def test_is_valid_binary_search_tree_three_levels_child_none(self):
         """
                  5
                /  \
               /    \
              /      \
-            4       7
+            3       7
            / \     /
-          2   9   6
+          2   4   6
         """
         node0 = binary_node.BinaryNode(5)
-        node1 = binary_node.BinaryNode(4)
+        node1 = binary_node.BinaryNode(3)
         node2 = binary_node.BinaryNode(7)
         node3 = binary_node.BinaryNode(2)
-        node4 = binary_node.BinaryNode(9)
+        node4 = binary_node.BinaryNode(4)
         node5 = binary_node.BinaryNode(6)
 
         node0.left = node1
