@@ -3,23 +3,30 @@
 """ binary_tree contains methods to search a binary tree
 """
 
-
-def is_valid_binary_search_tree(node, node_values):
+def is_valid_binary_search_tree(node):
     """
-    Traverses tree starting at node, depth first
+    Traverses tree depth first in order
+    """
+    return is_valid_bst(node, float('-inf'), float('inf'))
+
+
+def is_valid_bst(node, value_min, value_max):
+    """
+    Traverses tree depth first in order
     Note the tree may be a subtree of a larger tree.
     The method may be called recursively.
 
-    Assume tree does not have to be "balanced", may have more levels than necessary.
-
-    Assume duplicate values are not allowed.
-    Count all node values, check for duplicates
-    node_values is a dictionary of the tree's node values.
-    dictionary key is the node value, dictionary value is the count
-    if count is > 1, value is duplicated
+    Tree does not have to be "balanced", may have more levels than necessary.
+    Duplicate values are not allowed.
 
     https://en.wikipedia.org/wiki/Binary_search_tree
+    https://en.wikipedia.org/wiki/Tree_traversal
+    http://stackoverflow.com/questions/10832496/finding-if-a-binary-tree-is-a-binary-search-tree?noredirect=1&lq=1
+    http://stackoverflow.com/questions/499995/how-do-you-validate-a-binary-search-tree#759851
     http://stackoverflow.com/questions/300935/are-duplicate-keys-allowed-in-the-definition-of-binary-search-trees#300968
+    http://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints#7604981
+    value_min: initial call should set to float('-inf')
+    value_max: initial call should set to float('inf')
     :return True if node is None or is the root of a valid binary search tree
     return False if node value is None or node isn't the root of a valid binary search tree
     return False if tree contains a duplicate value
@@ -27,27 +34,17 @@ def is_valid_binary_search_tree(node, node_values):
     print("is_valid_binary_search_tree")
 
     if node is None:
-        # edge case
+        # e.g. parent node doesn't have a node at this child
         return True
-
-    print("node ", node, "node.value ", node.value)
 
     if node.value is None:
         return False
 
-    if node.value in node_values:
-        # duplicate
-        node_values[node.value] += 1
-        return False
+    if (node.value > value_min
+        and node.value < value_max
+        and is_valid_bst(node.left, value_min, node.value)
+        and is_valid_bst(node.right, node.value, value_max)):
+        return True
     else:
-        node_values[node.value] = 1
-
-    if node.left is not None and node.left.value is not None and node.left.value >= node.value:
         return False
 
-    if node.right is not None and node.right.value is not None and node.right.value <= node.value:
-        return False
-
-    # tree is valid so far, check both children
-    # recurse
-    return is_valid_binary_search_tree(node.left, node_values) and is_valid_binary_search_tree(node.right, node_values)
