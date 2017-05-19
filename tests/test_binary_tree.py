@@ -73,32 +73,28 @@ class TestTree(unittest.TestCase):
     def test_is_valid_binary_search_tree_three_levels_false(self):
         """
         In a valid sort tree, depth first in order traversal produces a sorted list.
-        This tree is not a valid sort tree.
+        This tree is not a valid binary search tree.
+        https://en.wikipedia.org/wiki/Binary_search_tree
 
-                 8
+                20
                /  \
               /    \
              /      \
-            5        11
-           / \      /  \
-          2   7    1    12
+           10        30
+                    /  \
+                   5    40
         """
-        node0 = binary_node.BinaryNode(8)
-        node1 = binary_node.BinaryNode(5)
-        node2 = binary_node.BinaryNode(11)
-        node3 = binary_node.BinaryNode(2)
-        node4 = binary_node.BinaryNode(7)
-        node5 = binary_node.BinaryNode(1)
-        node6 = binary_node.BinaryNode(12)
+        node0 = binary_node.BinaryNode(20)
+        node1 = binary_node.BinaryNode(10)
+        node2 = binary_node.BinaryNode(30)
+        node3 = binary_node.BinaryNode(5)
+        node4 = binary_node.BinaryNode(40)
 
         node0.left = node1
         node0.right = node2
 
-        node1.left = node3
-        node1.right = node4
-
-        node2.left = node5
-        node2.right = node6
+        node2.left = node3
+        node2.right = node4
 
         self.assertFalse(binary_tree.is_valid_binary_search_tree(node0, {}))
 
