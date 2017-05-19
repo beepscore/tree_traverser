@@ -18,6 +18,7 @@ def is_valid_binary_search_tree(node, node_values):
     dictionary key is the node value, dictionary value is the count
     if count is > 1, value is duplicated
 
+    https://en.wikipedia.org/wiki/Binary_search_tree
     http://stackoverflow.com/questions/300935/are-duplicate-keys-allowed-in-the-definition-of-binary-search-trees#300968
     :return True if node is None or is the root of a valid binary search tree
     return False if node value is None or node isn't the root of a valid binary search tree
