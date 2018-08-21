@@ -29,4 +29,4 @@ search order should be 2, 3, 5, 1, 2
 ## Appendix Anaconda environment
 
     conda create -n beepscore python=3.6
-    source activate beepscore
+    conda activate beepscore
